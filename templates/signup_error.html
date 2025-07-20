@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Signup Error</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-Avb2QiuDEEvB4bZJYdft2mNjVShBftLdPG8FJ0V7irTLQ8Uo0qcPxh4Plq7G5tGm0rU+1SPhVotteLpBERwTkw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', system-ui, -apple-system, Roboto, 'Helvetica Neue', Arial, sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(45deg, #1a1633, #2a1a5e, #3f1e6b);
+            background-size: 200% 200%;
+            position: relative;
+            overflow: auto;
+            color: #ffffff;
+            -webkit-transition: background-position 4s ease;
+            transition: background-position 4s ease;
+            -webkit-animation: gradientShift 15s ease infinite;
+            animation: gradientShift 15s ease infinite;
+            touch-action: manipulation;
+        }
+
+        @-webkit-keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        body::before, body::after {
+            content: '';
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.4;
+            z-index: -1;
+            -webkit-animation: float 12s infinite ease-in-out alternate;
+            animation: float 12s infinite ease-in-out alternate;
+        }
+
+        body::before {
+            width: 220px;
+            height: 220px;
+            background: #8a4af3;
+            top: 5%;
+            left: 5%;
+        }
+
+        body::after {
+            width: 280px;
+            height: 280px;
+            background: #ff5d8f;
+            bottom: 5%;
+            right: 5%;
+            -webkit-animation-delay: 6s;
+            animation-delay: 6s;
+        }
+
+        @keyframes float {
+            0% {
+                -webkit-transform: translateY(0) translateX(0) scale(1);
+                transform: translateY(0) translateX(0) scale(1);
+                opacity: 0.4;
+            }
+            100% {
+                -webkit-transform: translateY(-25px) translateX(25px) scale(1.1);
+                transform: translateY(-25px) translateX(25px) scale(1.1);
+                opacity: 0.6;
+            }
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0) translateX(0) scale(1);
+                opacity: 0.4;
+            }
+            100% {
+                transform: translateY(-25px) translateX(25px) scale(1.1);
+                opacity: 0.6;
+            }
+        }
+
+        .home-link {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            z-index: 10;
+        }
+
+        .home-link a {
+            color: #8a4af3;
+            font-size: 18px;
+            font-weight: 600;
+            text-decoration: none;
+            -webkit-transition: all 0.3s ease;
+            transition: all 0.3s ease;
+            padding: 10px;
+            display: inline-flex;
+            align-items: center;
+            text-shadow: 0 0 10px rgba(138, 74, 243, 0.5);
+        }
+
+        .home-link a i {
+            margin-right: 8px;
+            font-size: 20px;
+        }
+
+        .home-link a:hover, .home-link a:active {
+            color: #ffffff;
+            -webkit-transform: scale(1.05);
+            transform: scale(1.05);
+            text-shadow: 0 0 15px #8a4af3;
+        }
+
+        .container {
+            background: #ffffff;
+            padding: 40px 30px;
+            border-radius: 20px;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            max-width: 420px;
+            text-align: center;
+            -webkit-animation: slideIn 1.2s ease-out forwards;
+            animation: slideIn 1.2s ease-out forwards;
+            transform: translateY(60px);
+            opacity: 0;
+            color: #2d2d58;
+        }
+
+        @-webkit-keyframes slideIn {
+            0% {
+                -webkit-transform: translateY(60px) scale(0.95);
+                transform: translateY(60px) scale(0.95);
+                opacity: 0;
+            }
+            100% {
+                -webkit-transform: translateY(0) scale(1);
+                transform: translateY(0) scale(1);
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideIn {
+            0% {
+                transform: translateY(60px) scale(0.95);
+                opacity: 0;
+            }
+            100% {
+                transform: translateY(0) scale(1);
+                opacity: 1;
+            }
+        }
+
+        h1 {
+            margin-bottom: 25px;
+            font-size: 28px;
+            font-weight: 700;
+            color: #2d2d58;
+            text-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .error {
+            color: #ff3b30;
+            font-size: 14px;
+            padding: 12px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            background: rgba(0, 0, 0, 0.05);
+            border: 1px solid #ff3b30;
+        }
+
+        .links {
+            margin-top: 20px;
+            font-size: 14px;
+        }
+
+        .links a {
+            color: #8a4af3;
+            text-decoration: none;
+            font-weight: 600;
+            -webkit-transition: all 0.3s ease;
+            transition: all 0.3s ease;
+            padding: 10px;
+            display: inline-block;
+            text-shadow: 0 0 5px rgba(138, 74, 243, 0.3);
+        }
+
+        .links a:hover, .links a:active {
+            color: #6b3cc9;
+            -webkit-transform: scale(1.05);
+            transform: scale(1.05);
+            text-shadow: 0 0 10px rgba(138, 74, 243, 0.5);
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                width: 90vw;
+                padding: 30px 20px;
+            }
+
+            .home-link {
+                top: 10px;
+                left: 10px;
+            }
+
+            .home-link a {
+                font-size: 16px;
+                padding: 8px;
+            }
+
+            .home-link a i {
+                font-size: 18px;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+
+            .error {
+                font-size: 12px;
+                padding: 10px;
+            }
+
+            .links {
+                font-size: 12px;
+            }
+
+            body::before, body::after {
+                width: 150px;
+                height: 150px;
+                filter: blur(60px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="home-link">
+        <a href="/main" aria-label="Return to Home Tech Titans homepage"><i class="fa-solid fa-house"></i> Home Tech Titans</a>
+    </div>
+
+    <div class="container">
+        <h1><i class="fa-solid fa-exclamation-circle"></i> Signup Error</h1>
+        <p class="error">{{ message }}</p>
+        <div class="links">
+            <p><a href="/signup">Try Again</a></p>
+            <p><a href="/">Back to Login</a></p>
+        </div>
+    </div>
+</body>
+</html>
